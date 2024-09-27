@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link
+      rel="shortcut icon"
+      href="./img/favicon/android-chrome-192x192.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Main Container To Add/Delete/Display the tasks -->
+    <div id="container" class="border">
+      <!-- Main Row of adding new Task -->
+      <div id="row1">
+        <h1 id="main-title">Todo List</h1>
+
+        <!-- Section to Add/Delete all Tasks -->
+        <section id="main-section">
+          <div id="input-container">
+            <input type="text" maxlength="25" id="new-task" />
+            <div id="add-task">
+              <button id="add-task-btn">
+                <i class="fa-solid fa-plus fa-fade"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Delete All Tasks -->
+          <div id="delete-all-tasks">
+            <button id="delete-all-task-btn">
+              <i class="fa-solid fa-trash fa-shake"></i>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Display Task List On the Screen -->
+      <div id="list-area">
+        <div id="task-item">
+
+          <div id="item-no-" class="item-no">
+            <section id="item-section">
+              <!-- Star Icon -->
+              <div class="completed-icon">
+                <button>
+                  <i class="fa-regular fa-star"></i>
+                </button>
+              </div>
+
+              <!-- Text -->
+              <div class="text-content">
+                <input type="text" name="" class="list-text" maxlength="25"/>
+                <div class="edit-btn">
+                  <button>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <!-- Delete Icon -->
+            <div class="delete-text-content">
+              <button>
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
