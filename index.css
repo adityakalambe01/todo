@@ -179,6 +179,8 @@ body{
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
 
+    /* margin: 15px auto; */
+    padding: 15px auto;
 
     border: 2px solid black;
     height: auto !important;
