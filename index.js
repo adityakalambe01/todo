@@ -2,7 +2,7 @@ let taskList = JSON.parse(localStorage.getItem("taskList")) || [];
 const addTaskBtn = document.getElementById("add-task-btn");
 const taskInput = document.getElementById("new-task");
 const clearAllBtn = document.getElementById("delete-all-task-btn");
-// const screen = document.getElementById("task-item");
+const screen = document.getElementById("list-area");
 
 // Save in Array and Local Storage
 function saveValue(value){
@@ -39,7 +39,7 @@ addTaskBtn.addEventListener('click', function(){
 
     taskInput.style.border='';
 
-    taskList.push({taskName: value, complete: false});
+    taskList.push({taskName: value, complete: false, editTask: false});
     saveValue(taskList);
     
     // console.log(taskList);
@@ -63,32 +63,66 @@ function deleteButtonVisibility(length){
     }
 }
 
+function editableTask(value, i){
+    return value ? 
+                `
+                <input type="text" class="list-text" id="update-task-${i}" maxlength="25" value="${taskList[i].taskName}"/>
+                <div class="edit-btn" id="edit-update-task">
+                  <button onclick="updateTask(${i})">
+                    <i class="fa-regular fa-circle-up"></i>
+                  </button>
+                </div>
+                ` 
+                : 
+                `
+                <input type="text" class="list-text" maxlength="25" value="${taskList[i].taskName}" disabled/>
+                <div class="edit-btn" id="edit-update-task">
+                  <button onclick="editTask(${i})">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </div>
+                ` ;
+}
+
 // Display All Tasks
 function displayAllTasks(){
     taskInput.placeholder = "Add Task";
     clearScreen();
     deleteButtonVisibility(taskList.length);
     for(let i=0; i<taskList.length; i++){
-        screen.innerHTML += `
-            <div style='display: flex;'>
+        screen.innerHTML += 
+        `
+        <div class="task-item">
+        <div id="item-no-${i}" class="item-no">
+            <section id="item-section">
 
-                <button onclick=markCompleted(${i})>
-                    <i class="fa-regular fa-star"></i>
+              <!-- Star Icon -->
+              <div class="completed-icon">
+                <button onclick="markCompleted(${i})">
+                  ${taskList[i].complete===true?
+                    `<i class="fa-solid fa-star"></i>`
+                    :
+                    `<i class="fa-regular fa-star"></i>`
+                  }
+                    
                 </button>
-                
-                <li>
-                    ${taskList[i].taskName}
-                </li>
+              </div>
 
-                <button onclick=editTask(${i})>
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button onclick=deleteTask(${i})>
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
+              <!-- Text -->
+              <div class="text-content">
+                ${editableTask(taskList[i].editTask,i)}
+              </div>
+
             
-        `;
+            </section>
+
+            <!-- Delete Icon -->
+            <div class="delete-text-content">
+              <button onclick="deleteTask(${i})">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div></div>`;
         console.log(taskList[i])
     }
 }
@@ -102,15 +136,36 @@ const deleteTask = (index) =>{
 
 // edit todo Item
 const editTask = (index) =>{
+    
+    for(let i=0; i<taskList.length; i++){
+        if(taskList[i].editTask===true){
+            taskList[i].editTask = false;
+        }
+    }
 
+    taskList[index].editTask = true;
+    displayAllTasks();
+}
+
+const updateTask = (index) =>{
+
+    taskList[index].taskName = document.getElementById(`update-task-${index}`).value;
+    taskList[index].editTask = false;
+
+    saveValue(taskList);
+    displayAllTasks();
+    
 }
 
 // Mark Complete Task
 const markCompleted = (index) =>{
-    if(taskList[index].complete)
+    if(taskList[index].complete){
+        
         taskList[index].complete = false;
-    else
+    }
+    else{
         taskList[index].complete = true;
+    }
     saveValue(taskList);
     displayAllTasks();
 }
