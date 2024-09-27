@@ -14,7 +14,7 @@ body{
                 #9d0208a3,
                 #6a040fa3); */
 
-    background: linear-gradient(360deg, #48cae4, #90e0ef, #ade8f4);
+    background: linear-gradient(180deg, #48cae4, #90e0ef, #ade8f4);
     min-height: 100vh;
     max-height: auto;
     background-size: cover;
