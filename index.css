@@ -6,13 +6,15 @@
 }
 
 body{
-    background: linear-gradient(360deg,
+    /* background: linear-gradient(360deg,
                 #f48d06a3,
                 #e85d04a3,
                 #dc2f02a3,
                 #d00000a3,
                 #9d0208a3,
-                #6a040fa3);
+                #6a040fa3); */
+
+    background: linear-gradient(360deg, #48cae4, #90e0ef, #ade8f4);
     min-height: 100vh;
     max-height: auto;
     background-size: cover;
@@ -41,7 +43,7 @@ body{
 #row1{
     display: flex;
     flex-direction: column;
-    background-color: rgba(142, 116, 116, 0.54);
+    background-color: rgba(255, 255, 255, 0.227);
     border-radius: 30px;
     padding: 10px;
 }
