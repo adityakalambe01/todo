@@ -325,3 +325,9 @@ input{
     align-items: center;
     margin-bottom: 15px;
 }
+
+@media (max-length: 480px){
+    .container{
+        width: 300px;;
+    }
+}
