@@ -6,28 +6,11 @@
 }
 
 body{
-    /* background: linear-gradient(360deg,
-                #f48d06a3,
-                #e85d04a3,
-                #dc2f02a3,
-                #d00000a3,
-                #9d0208a3,
-                #6a040fa3); */
-
-    /* background: linear-gradient(180deg, #48cae4, #90e0ef, #ade8f4); */
     background: 
         linear-gradient(
-            /* #A8D3E0, #F1A7B6 */
-
-            /* #A8E6CE, #D3C6E7 */
-
-            #87CEEB, #008080
-
-            /* #FF6F61, #FF8C42 */
-
-            /* #D9C2B2, #A8BBA1 */
-
-            /* #39FF14, #A500FF */
+            /* 360deg, */
+            #87CEEB, 
+            #008080b0
         )
     ;
     min-height: 100vh;
@@ -87,16 +70,6 @@ body{
     margin-right: -5px;
 }
 
-#add-task:hover{
-    background: linear-gradient(225deg,
-                #f48d06a3,
-                #e85d04a3,
-                #dc2f02a3,
-                #d00000a3,
-                #9d0208a3,
-                #6a040fa3);
-}
-
 #new-task{
     width: 100%;
     height: 100%;
@@ -118,15 +91,14 @@ body{
 #add-task-btn{
     width: 100%; 
     height: 100%; 
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2px;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
     background-color: transparent !important; 
     border-color: transparent !important;
-    margin-right: auto;
-    margin-left: auto;
-    /* border: 2px solid orange; */
     cursor: pointer;
-
     background: linear-gradient(90deg,
                 #f48d06a3,
                 #e85d04a3,
@@ -137,13 +109,14 @@ body{
 }
 
 #add-task-btn:hover{
-    background: linear-gradient(90deg,
+    background: linear-gradient(225deg,
                 #f48d06a3,
                 #e85d04a3,
                 #dc2f02a3,
                 #d00000a3,
                 #9d0208a3,
                 #6a040fa3);
+
 }
 
 #delete-all-tasks{
@@ -224,8 +197,6 @@ body{
 .completed-icon{
     height: 100%;
     display: flex;
-    /* margin-left: -15px; */
-    
 }
 
 button{
@@ -242,22 +213,18 @@ button{
     color: black;
     font-size: 22px;
     margin-right: 5px;
-    /* font-weight: bolder; */
 }
 
 .text-content{
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
     width: 95%;
     height: 100%;
     border-radius: 25px;
-    /* background-color: white; */
     
 }
 
 .edit-btn{
-    /* margin-left: 0; */
     display: flex;
     height: 100%;
     background-color: white;
@@ -268,7 +235,6 @@ button{
 
 .edit-btn button i{
     font-size: 18px;
-    
 }
 
 input:focus{
@@ -277,24 +243,21 @@ input:focus{
 
 .delete-text-content{
     height: auto;
-    width: 5%;
-    margin-left: 0px;
-    align-self: center;
-    /* margin-right: -10px; */
-    
+    width: auto;
+    align-self: center;    
 }
 
 .delete-text-content button i{
+    margin: 10px auto auto -35px;
     font-size: 25px;
 }
 
 .delete-text-content button i:hover{
+    color: rgba(255, 0, 0, 0.702);
 }
 
 #item-section{
     display: flex;
-    /* flex-direction: row-reverse; */
-    /* justify-content: flex-end; */
     width: 80%;
     height: 45px;
     justify-content: space-between;
@@ -304,7 +267,6 @@ input:focus{
     width: 100%;
     height: 100%;
     font-size: 15px;
-    /* text-align: center; */
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
     border: none;
@@ -326,13 +288,44 @@ input{
     margin-bottom: 15px;
 }
 
+
+
+
+/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     body{
-        background-color: red;
+        background:
+                linear-gradient(
+                    #A8D3E0, #F1A7B6
+                );
     }
 
     #container{
         width: 325px;
     }
+
+    #main-title{
+        font-size: 40px;
+    }
 }
 
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    body {
+            background:
+                    linear-gradient(#A8D3E0,
+                        #F1A7B6);
+        }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    body {
+            background:
+                linear-gradient(
+                    360deg,
+                    #87CEEB,
+                    #008080
+                );
+        }
+}
