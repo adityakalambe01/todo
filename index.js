@@ -31,17 +31,16 @@ addTaskBtn.addEventListener("click", function () {
   let value = taskInput.value;
   if (value.trim() === "") {
     taskInput.placeholder = "Invalid task!!! ";
-    setInterval(function(){
-        taskInput.placeholder = "Enter Todo Task";
-    },3000);
+    setInterval(function () {
+      taskInput.placeholder = "Enter Todo Task";
+    }, 3000);
 
-    
     taskInput.style.border = "2px solid red";
-    setTimeout(function(){
-        taskInput.style.border = "";
-    },2000);
-    
-    showMessage("Invalid todo task!!!","red");
+    setTimeout(function () {
+      taskInput.style.border = "";
+    }, 2000);
+
+    showMessage("Invalid todo task!!!", "red");
     // alert("Please add someting inside it");
     return;
   }
@@ -116,6 +115,11 @@ function displayAllTasks() {
   taskInput.placeholder = "Enter Todo Task";
   clearScreen();
   deleteButtonVisibility(taskList.length);
+  if (taskList.length) {
+    screen.style.display = "block";
+  }else{
+    screen.style.display = 'none'
+  }
   for (let i = 0; i < taskList.length; i++) {
     screen.innerHTML += `
         <div class="task-item">
@@ -172,14 +176,13 @@ const editTask = (index) => {
 };
 
 const updateTask = (index) => {
-  let value = document.getElementById(
-      `update-task-${index}`).value;
-  if (value===''){
+  let value = document.getElementById(`update-task-${index}`).value;
+  if (value === "") {
     showMessage("Invalid Todo Task!!!", "red");
     return;
   }
-    taskList[index].taskName = value;
-    
+  taskList[index].taskName = value;
+
   taskList[index].editTask = false;
 
   saveValue(taskList);
@@ -187,17 +190,17 @@ const updateTask = (index) => {
   displayAllTasks();
 };
 
-function showMessage(displayMessage,color){
-    message.innerHTML = `<h4 style='color:${color}; font-size: 20px; text-align: center; margin: 15px auto; background-color:;'>${displayMessage}</h4>`;
-    setTimeout(function(){
-      message.innerHTML = '';
-    }, 3000);
+function showMessage(displayMessage, color) {
+  message.innerHTML = `<h4 style='color:${color}; font-size: 20px; text-align: center; margin: 15px auto; background-color:;'>${displayMessage}</h4>`;
+  setTimeout(function () {
+    message.innerHTML = "";
+  }, 3000);
 }
 
-function totalCompleted(){
-  let total=0;
-  for(let i = 0; i<taskList.length; i++){
-    if(taskList[i].complete===true){
+function totalCompleted() {
+  let total = 0;
+  for (let i = 0; i < taskList.length; i++) {
+    if (taskList[i].complete === true) {
       ++total;
     }
   }
@@ -210,7 +213,10 @@ const markCompleted = (index) => {
     taskList[index].complete = false;
   } else {
     taskList[index].complete = true;
-    showMessage(totalCompleted().toString().concat(" Tasks Completed!"), "Green")
+    showMessage(
+      totalCompleted().toString().concat(" Tasks Completed!"),
+      "Green"
+    );
   }
   saveValue(taskList);
   displayAllTasks();
