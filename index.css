@@ -3,23 +3,25 @@
     padding: 0;
     margin: 0;
     letter-spacing: 1px;
+    
 }
 
 body{
     background: 
         linear-gradient(
-            /* 360deg, */
+            360deg,
             #87CEEB, 
             #008080b0
         )
     ;
     min-height: 100vh;
-    /* max-height: auto; */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* display: flex;
-    justify-content: center; */
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 #container{
@@ -147,17 +149,10 @@ body{
 }
 
 #list-area{
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-
-    /* margin: 15px auto; */
-    /* padding: 20px auto; */
-
-    /* border: 2px solid black; */
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 10px;
     height: auto !important;
-
     background-color: rgba(255, 255, 255, 0.227);
 }
 .task-item{
@@ -166,10 +161,6 @@ body{
     flex-direction: column;
     justify-content: space-between;
     height: 60px;
-
-    /* border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    border: 2px solid black; */
     padding-top: 10px;
     padding-bottom: 10px;
     
@@ -296,7 +287,8 @@ input{
     body{
         background:
                 linear-gradient(
-                    #A8D3E0, #F1A7B6
+                    #A8D3E0, 
+                    #F1A7B6
                 );
     }
 
@@ -313,8 +305,10 @@ input{
 @media only screen and (min-width: 992px) {
     body {
             background:
-                    linear-gradient(#A8D3E0,
-                        #F1A7B6);
+                    linear-gradient(
+                        #A8D3E0,
+                        #F1A7B6
+                    );
         }
 }
 
@@ -325,7 +319,7 @@ input{
                 linear-gradient(
                     360deg,
                     #87CEEB,
-                    #008080
+                    #008080b0
                 );
         }
 }
