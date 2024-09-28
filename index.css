@@ -24,14 +24,26 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+/* Universal */
+button {
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+
+input {
+    background-color: white !important;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* Main Container */
 #container{
     width: 400px;
     margin: 20px auto;
     height: 100%;
-}
-
-.border{
-    border: 2px dotted blue;
 }
 
 #main-title{
@@ -153,6 +165,7 @@ body::-webkit-scrollbar {
     color: rgba(0, 0, 0, 0.539);
 }
 
+/* List Area */
 #list-area{
     border-radius: 25px;
     padding-top: 5px;
@@ -160,7 +173,8 @@ body::-webkit-scrollbar {
     height: auto !important;
     background-color: rgba(255, 255, 255, 0.227);
 }
-.task-item{
+
+.task-item{ 
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -195,19 +209,13 @@ body::-webkit-scrollbar {
     display: flex;
 }
 
-button{
-    background-color: transparent;
-    border: transparent;
-    cursor: pointer;
-}
-
 .item-no i{
     font-size: 16px;
 }
 
 .completed-icon button i{
     color: black;
-    font-size: 22px;
+    font-size: 22px !important;
     margin-right: 5px;
 }
 
@@ -224,17 +232,13 @@ button{
     display: flex;
     height: 100%;
     background-color: white;
+    padding-right: 15px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    padding-right: 15px;
 }
 
 .edit-btn button i{
     font-size: 18px;
-}
-
-input:focus{
-    outline: none;
 }
 
 .delete-text-content{
@@ -269,11 +273,7 @@ input:focus{
     padding: 10px 15px 10px 15px;
 }
 
-input{
-    background-color: white !important;
-}
-
-
+/* Footer */
 #footer{
     color: white;
     font-size: 18px;
@@ -286,7 +286,7 @@ input{
 
 
 
-
+/* Responsive */
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     body{
