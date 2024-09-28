@@ -17,6 +17,13 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="index.css" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cutive&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Main Container To Add/Delete/Display the tasks -->
@@ -28,7 +35,7 @@
         <!-- Section to Add/Delete all Tasks -->
         <section id="main-section">
           <div id="input-container">
-            <input type="text" maxlength="20" id="new-task" />
+            <input type="text" maxlength="25" id="new-task" />
             <div id="add-task">
               <button id="add-task-btn">
                 <i class="fa-solid fa-plus fa-fade"></i>
@@ -45,22 +52,16 @@
         </section>
       </div>
 
-      <div id="message">
-            
-      </div>
+      <div id="message"></div>
 
       <!-- Display Task List On the Screen -->
-      <div id="list-area">
-        
-      </div>
+      <div id="list-area"></div>
     </div>
-    <footer id="footer">
-        
-    </footer>
+    <footer id="footer"></footer>
 
     <script src="index.js"></script>
     <script>
-      document.getElementById('footer').innerHTML = `
+      document.getElementById("footer").innerHTML = `
         <div>
           <h4>
             Todo List App &copy; ${new Date().getFullYear()}  
