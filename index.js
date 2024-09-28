@@ -31,6 +31,9 @@ addTaskBtn.addEventListener("click", function () {
   let value = taskInput.value;
   if (value.trim() === "") {
     taskInput.placeholder = "Invalid task!!! ";
+    setInterval(function(){
+        taskInput.placeholder = "Enter Todo Task";
+    },3000);
 
     
     taskInput.style.border = "2px solid red";
@@ -185,7 +188,7 @@ const updateTask = (index) => {
 };
 
 function showMessage(displayMessage,color){
-    message.innerHTML = `<h4 style='color:${color}; font-size: 20px; text-align: center; margin: 15px auto;'>${displayMessage}</h4>`;
+    message.innerHTML = `<h4 style='color:${color}; font-size: 20px; text-align: center; margin: 15px auto; background-color:;'>${displayMessage}</h4>`;
     setTimeout(function(){
       message.innerHTML = '';
     }, 3000);
