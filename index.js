@@ -3,7 +3,7 @@ const addTaskBtn = document.getElementById("add-task-btn");
 const taskInput = document.getElementById("new-task");
 const clearAllBtn = document.getElementById("delete-all-task-btn");
 const screen = document.getElementById("list-area");
-const showMessage = document.getElementById("message");
+const message = document.getElementById("message");
 
 // Save in Array and Local Storage
 function saveValue(value) {
@@ -30,9 +30,15 @@ function clearScreen() {
 addTaskBtn.addEventListener("click", function () {
   let value = taskInput.value;
   if (value.trim() === "") {
-    taskInput.placeholder = "Invalid task! ";
-    taskInput.style.border = "2px solid red";
+    taskInput.placeholder = "Invalid task!!! ";
 
+    
+    taskInput.style.border = "2px solid red";
+    setTimeout(function(){
+        taskInput.style.border = "";
+    },2000);
+    
+    showMessage("Invalid todo task!!!","red");
     // alert("Please add someting inside it");
     return;
   }
@@ -43,6 +49,7 @@ addTaskBtn.addEventListener("click", function () {
   saveValue(taskList);
 
   // console.log(taskList);
+  showMessage("Todo Task Added", "Green");
   displayAllTasks();
   clearInputField();
 });
@@ -101,22 +108,9 @@ function editableTask(value, i) {
         `;
 }
 
-// sort Complted to Last
-// function sort() {
-//   for(let i= 0; i<taskList.length; i++){
-//     if(taskList[i].complete===true){
-//       let temp = taskList[i];
-//       taskList.splice(i,1);
-//       taskList.push(temp);
-//       break;
-//     }
-//   }
-//   saveValue(taskList);
-// }
-
 // Display All Tasks
 function displayAllTasks() {
-  taskInput.placeholder = "Add Task";
+  taskInput.placeholder = "Enter Todo Task";
   clearScreen();
   deleteButtonVisibility(taskList.length);
   for (let i = 0; i < taskList.length; i++) {
@@ -175,15 +169,37 @@ const editTask = (index) => {
 };
 
 const updateTask = (index) => {
-  
-  taskList[index].taskName = document.getElementById(
-    `update-task-${index}`
-  ).value;
+  let value = document.getElementById(
+      `update-task-${index}`).value;
+  if (value===''){
+    showMessage("Invalid Todo Task!!!", "red");
+    return;
+  }
+    taskList[index].taskName = value;
+    
   taskList[index].editTask = false;
 
   saveValue(taskList);
+  showMessage("Todo Task Updated!!!", "green");
   displayAllTasks();
 };
+
+function showMessage(displayMessage,color){
+    message.innerHTML = `<h4 style='color:${color}; font-size: 20px; text-align: center; margin: 15px auto;'>${displayMessage}</h4>`;
+    setTimeout(function(){
+      message.innerHTML = '';
+    }, 3000);
+}
+
+function totalCompleted(){
+  let total=0;
+  for(let i = 0; i<taskList.length; i++){
+    if(taskList[i].complete===true){
+      ++total;
+    }
+  }
+  return total;
+}
 
 // Mark Complete Task
 const markCompleted = (index) => {
@@ -191,6 +207,7 @@ const markCompleted = (index) => {
     taskList[index].complete = false;
   } else {
     taskList[index].complete = true;
+    showMessage(totalCompleted().toString().concat(" Tasks Completed!"), "Green")
   }
   saveValue(taskList);
   displayAllTasks();
