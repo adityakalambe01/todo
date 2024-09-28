@@ -14,19 +14,34 @@ body{
                 #9d0208a3,
                 #6a040fa3); */
 
-    background: linear-gradient(180deg, #48cae4, #90e0ef, #ade8f4);
+    /* background: linear-gradient(180deg, #48cae4, #90e0ef, #ade8f4); */
+    background: 
+        linear-gradient(
+            /* #A8D3E0, #F1A7B6 */
+
+            /* #A8E6CE, #D3C6E7 */
+
+            #87CEEB, #008080
+
+            /* #FF6F61, #FF8C42 */
+
+            /* #D9C2B2, #A8BBA1 */
+
+            /* #39FF14, #A500FF */
+        )
+    ;
     min-height: 100vh;
-    max-height: auto;
+    /* max-height: auto; */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
 }
 
 #container{
-    min-width: 400px;
-    margin-top: 50px;
+    width: 400px;
+    margin: 50px auto;
     height: 100%;
 }
 
@@ -60,29 +75,16 @@ body{
     text-align: center;
     width: 80%;
     height: 45px;
-    /* border: 3px solid red; */
-    /* border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%; */
-    /* background-color: white; */
-
 }
 
 #add-task{
-    /* border: 2px solid black; */
     width: 18%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* border-radius: 50%; */
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
-    /* background-color: orange; */
-    
     margin-right: -5px;
-
-    
 }
 
 #add-task:hover{
@@ -172,33 +174,31 @@ body{
 }
 
 #list-area{
-    /* overflow: scroll; */
-
-    /* overflow-x: hidden; */
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
 
     /* margin: 15px auto; */
-    padding: 15px auto;
+    /* padding: 20px auto; */
 
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: auto !important;
-}
 
+    background-color: rgba(255, 255, 255, 0.227);
+}
 .task-item{
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: space-between;
-    height: 50px;
+    height: 60px;
 
     /* border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     border: 2px solid black; */
-    padding-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     
 }
 
@@ -239,8 +239,10 @@ button{
 }
 
 .completed-icon button i{
-    color: gold;
-    font-size: 20px;
+    color: black;
+    font-size: 22px;
+    margin-right: 5px;
+    /* font-weight: bolder; */
 }
 
 .text-content{
@@ -301,6 +303,8 @@ input:focus{
 .list-text{
     width: 100%;
     height: 100%;
+    font-size: 15px;
+    /* text-align: center; */
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
     border: none;
@@ -309,4 +313,14 @@ input:focus{
 
 input{
     background-color: white !important;
+}
+
+
+#footer{
+    color: white;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex;
+    align-items: center;
 }
