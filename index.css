@@ -304,6 +304,11 @@ input:focus {
     #main-title{
         font-size: 30px;
     }
+
+    #add-task-btn i{
+        font-size: 22px;
+        font-weight: bolder;
+    }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
